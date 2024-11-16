@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Series de Taylor</title>
+    <link rel="icon" href="images/favicon.ico" type type="image/x-icon"/>
+    <link rel="stylesheet" href="sitio.css">
+    <script src="controller.js" type="module" defer></script>
+</head>
+<body id="series">
+
+    <div class="sidebar">
+        <div class="profile">
+            <img  id="icon" src="images/favicon.ico" alt="Perfil" >
+            <p id="titulo">Calculadora</p>
+        </div>
+        <p id="titul">funciones. </p>
+        <button id="toggleButton">Exponencial</button>
+        <button id="toggleButton1">Trigonometricas</button>
+        <button id="toggleButton2">Inversas</button>
+        <button id="toggleButton3">Logaritmicas</button>
+        <button id="toggleButton4">Hiperbolicas</button>
+        <button id="toggleButton5">W de Lambert</button>
+        <button id="toggleButton6">Serie Binominal</button>
+    </div>
+
+    <div id="exponencial_div" class="hidden">
+        <div class="container">
+            <h2>Cálculo de Exponencial</h2>
+            <p>Introduce los valores para calcular el exponencial utilizando series de Taylor.</p>
+
+            <label for="inputX">Introduce el valor de x:</label>
+            <input type="number" id="inputX" step="any" placeholder="Ej: 1" required>
+
+            <label for="inputN">Número de términos (n):</label>
+            <input type="number" id="inputN" placeholder="Ej: 10" min="1" required>
+            
+            <label for="inputexp">El exponencial de X es:</label>
+            <input type="number" id="inputexp" disabled>
+            <button id="calcularBtn">Calcular Exponencial</button>
+        
+        </div>
+    </div>
+
+    <div id="Trigonometricas_div" class="hidden">
+        <div class="container">
+            <h2>Cálculo de Trigonométricas</h2>
+            <p>Introduce los valores para calcular el seno y coseno de x utilizando series de Taylor.</p>
+            <label for="inputX_seno">Introduce el valor de x:</label>
+            <input type="number" id="inputX_seno" step="any" placeholder="Ej: 1" required>
+
+            <label for="inputN_seno">Número de términos (n):</label>
+            <input type="number" id="inputN_seno" placeholder="Ej: 10" min="1" required>
+
+            <label for="inputexsen">El seno de X es:</label>
+            <input type="number" id="inputexsen" disabled>
+            <button id="calcularBtnsen">Calcular Seno</button>
+
+            <label for="inputexcos">El Coseno de X es:</label>
+            <input type="number" id="inputexcos" disabled>
+            <button id="calcularBtnscos">Calcular Coseno</button>
+
+            <label for="inputextan">La Tangente de X es:</label>
+            <input type="number" id="inputextan" disabled>
+            <button id="calcularBtntan">Calcular Tangente</button>
+
+        </div>
+    </div>
+
+    <div id="Inversas_div" class="hidden">
+        <div class="container">
+            <h2>Cálculo de Inversas</h2>
+            <p>Introduce los valores para calcular las funciones inversas utilizando series de Taylor.</p>
+
+            <label for="inputX_inversas">Introduce el valor de x:</label>
+            <input type="number" id="inputX_inversas" step="any" placeholder="Ej: 1" required>
+            
+            <label for="inputN_inversas">Número de términos (n):</label>
+            <input type="number" id="inputN_inversas" placeholder="Ej: 10" min="1" required>
+            
+            <label for="inputexarcs">El Arcsen de X es:</label>
+            <input type="number" id="inputexarcs" disabled>
+            <button id="calcularBtnarcs">Calcular Arcseno</button>
+            
+            <label for="inputexarcos">El Arcoss de X es:</label>
+            <input type="number" id="inputexarcos" disabled>
+            <button id="calcularBtnarcos">Calcular Arcoseno</button>
+            
+            <label for="inputexarctan">La Arctan de X es:</label>
+            <input type="number" id="inputexarctan" disabled>
+            <button id="calcularBtnarctan">Calcular Arctan</button>
+            
+            <label for="inputexsec">La Secante de X es:</label>
+            <input type="number" id="inputexsec" disabled>
+            <button id="calcularBtnsec">Calcular Secante</button>
+            
+            <label for="inputexcosec">La Cosecante de X es:</label>
+            <input type="number" id="inputexcosec" disabled>
+            <button id="calcularBtncosec">Calcular Cosecante</button>
+        
+        </div>
+    </div>
+    
+
+    <div id="Logaritmo_div" class="hidden">
+        <div class="container">
+            <h2>Cálculo de Logaritmo</h2>
+            <p>Introduce los valores para calcular el logaritmo utilizando series de Taylor.</p>
+
+            <label for="inputX_log">Introduce el valor de x:</label>
+            <input type="number" id="inputX_log" step="any" placeholder="Ej: 1" required>
+            
+            <label for="inputN_log">Número de términos (n):</label>
+            <input type="number" id="inputN_log" placeholder="Ej: 10" min="1" required>
+            
+            <label for="inputexlogaritmo">El Logaritmo de x (ln+1) es:</label>
+            <input type="number" id="inputexlogaritmo" disabled>
+            <button id="calcularBtnlogaritmo">Calcular Logaritmo</button>
+            
+            <label for="inputexlogaritmo_menos">El Logaritmo de x (ln-1) es:</label>
+            <input type="number" id="inputexlogaritmo_menos" disabled>
+            <button id="calcularBtnlogaritmo_menos">Calcular Logaritmo</button>
+        
+        </div>
+    </div>
+
+    <div id="Hiperbolica_div" class="hidden">
+        <div class="container">
+            <h2>Cálculo de Hiperbólicas</h2>
+            <p>Introduce los valores para calcular las funciones hiperbólicas utilizando series de Taylor.</p>
+
+            <label for="inputX_hiperbolica">Introduce el valor de x:</label>
+            <input type="number" id="inputX_hiperbolica" step="any" placeholder="Ej: 1" required>
+            
+            <label for="inputN_hiperbolica">Número de términos (n):</label>
+            <input type="number" id="inputN_hiperbolica" placeholder="Ej: 10" min="1" required>
+            
+            <label for="inputexSenh">La Senh de X es:</label>
+            <input type="number" id="inputexSenh" disabled>
+            <button id="calcularBtnSenh">Calcular Senh</button>
+            
+            <label for="inputexCosh">El Cosh de X es:</label>
+            <input type="number" id="inputexCosh" disabled>
+            <button id="calcularBtnCosh">Calcular Cosh</button>
+            
+            <label for="inputexTanh">la Tanh de X es:</label>
+            <input type="number" id="inputexTanh" disabled>
+            <button id="calcularBtnTanh">Calcular Tanh</button>
+
+            
+            <label for="inputexarcsh">la arcsenh de X es:</label>
+            <input type="number" id="inputexarcsh" disabled>
+            <button id="calcularBtnarcsh">Calcular Arcsh</button>
+            
+            <label for="inputexarctan">El Arctanh de X es:</label>
+            <input type="number" id="inputexarctanh" disabled>
+            <button id="calcularBtnarctanh">Calcular Arcsh</button>
+        
+        </div>
+    </div>
+
+    <div id="Lambert_div" class="hidden">
+        <div class="container">
+            <h2>Cálculo de W de Lambert</h2>
+            <p>Introduce los valores para calcular La W de Lambert.</p>
+
+            <label for="inputX_LambertW">Introduce el valor de x:</label>
+            <input type="number" id="inputX_LambertW" step="any" placeholder="Ej: 1" required>
+
+            <label for="inputN_Lambert">Número de términos (n):</label>
+            <input type="number" id="inputN_LambertW" placeholder="Ej: 10" min="1" required>
+            
+            <label for="inputLambert">La W de Lambert en X es:</label>
+            <input type="number" id="inputex_lambert" disabled>
+            <button id="calcularBtnLambertW">Calcular la La W de Lambert</button>
+        
+        </div>
+    </div>
+
+    <div id="Binominal_div" class="hidden">
+        <div class="container">
+            <h2>Cálculo de la Serie Binominal</h2>
+            <p>Introduce los valores para calcular La Serie Binominal.</p>
+
+            <label for="input_Binominal">Introduce el valor de x:</label>
+            <input type="number" id="inputX_Binominal" step="any" placeholder="Ej: 1" required>
+
+            <label for="input_Binominal">Número de términos (n):</label>
+            <input type="number" id="inputN_Binominal" placeholder="Ej: 10" min="1" required>
+            
+            <label for="input_Binominal">La serie Binominal en X es:</label>
+            <input type="number" id="inputex_Binominal" disabled>
+            <button id="calcularBtnBinominal">Calcular la serie Binominal</button>
+        
+        </div>
+    </div>
+
+
+    <div class="containertabla">
+        <div id="desglose">
+            <table id="detalle"></table>
+        </div>
+    </div>
+
+</body>
+</html>
